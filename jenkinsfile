@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("test"){
             steps{
-                sh 'main.go'
+                sh 'src/main.go'
             }
         }
     }
