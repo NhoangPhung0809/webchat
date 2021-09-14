@@ -1,5 +1,8 @@
 pipeline {
     agent { docker { image 'golang' } }
+    environment {
+        module 'websocket'
+    }
     stages {
         stage('Start') {
             steps {
