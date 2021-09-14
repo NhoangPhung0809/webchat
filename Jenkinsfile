@@ -9,7 +9,7 @@ pipeline {
         stage('build') {
             steps {
                 echo 'Build...!....!'
-                sh 'go run /src/main.go'
+                sh 'go run ./src/main.go'
             }
         }
     }
