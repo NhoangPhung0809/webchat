@@ -1,8 +1,5 @@
 pipeline {
     agent { docker { image 'golang' } }
-    environment {
-        module 'websocket'
-    }
     stages {
         stage('Start') {
             steps {
@@ -12,7 +9,9 @@ pipeline {
         }
         stage('Module') {
             steps {
+                sh 'sudo mkdir ./cache' 
                 echo 'Module...!....!'
+                sh 'go get github.com/gorilla/websocket'
             }
         }
         stage('build') {
