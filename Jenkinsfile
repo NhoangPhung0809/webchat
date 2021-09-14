@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Start') {
             steps {
+                echo 'Start....'
                 sh 'go version'
             }
         }
