@@ -1,13 +1,14 @@
-pipeline {
+ipeline {
     agent any
     tools {
-        go 'go-1.16'
+        go 'go1.16'
     }
-   environment {
+    environment {
         GO116MODULE = 'on'
         CGO_ENABLED = 0 
-   }
-    stages {     
+        GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
+    }
+    stages {        
         stage('Pre Test') {
             steps {
                 echo 'Installing dependencies'
@@ -15,17 +16,35 @@ pipeline {
                 sh 'go get -u golang.org/x/lint/golint'
             }
         }
+        
         stage('Build') {
             steps {
                 echo 'Compiling and building'
                 sh 'go build'
             }
         }
-        stage('build') {
+
+        stage('Test') {
             steps {
-                sh "chmod +x -R ${env.WORKSPACE}"
-                sh 'go run main.go'
+                withEnv(["PATH+GO=${GOPATH}/bin"]){
+                    echo 'Running vetting'
+                    sh 'go vet .'
+                    echo 'Running linting'
+                    sh 'golint .'
+                    echo 'Running test'
+                    sh 'cd test && go test -v'
+                }
             }
         }
+        
     }
+    post {
+        always {
+            emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+                to: "${params.RECIPIENTS}",
+                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+            
+        }
+    }  
 }
