@@ -10,6 +10,7 @@ pipeline {
         stage('Module') {
             steps {
                 echo 'Module...!....!'
+                sh 'go get github.com/gorilla/websocket'
             }
         }
         stage('build') {
