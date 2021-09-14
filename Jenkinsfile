@@ -1,10 +1,9 @@
 pipeline {
-    agent { docker { image 'golang' } }
+    agent { docker { image 'python:3.9.7' } }
     stages {
-        stage('build:...!') {
+        stage('build') {
             steps {
-                sh 'go version'
-                sh 'go run /src/main.go'
+                sh 'python --version'
             }
         }
     }
