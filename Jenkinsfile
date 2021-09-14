@@ -5,11 +5,11 @@ pipeline {
             steps {
                 echo 'Start....'
                 sh 'go version'
+                sh 'cd ./src/'
             }
         }
         stage('Module') {
             steps {
-                sh 'cd $GOPATH/src/$BASEDIR/* && make build'
                 echo 'Module...!....!'
                 sh 'go get github.com/gorilla/websocket'
             }
