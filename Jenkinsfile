@@ -1,9 +1,15 @@
-pipeline{
-    agent { docker { image 'golang' } }
-    stages{
-        stage("Bild") {
-            steps{
-                sh 'go version'
+pipeline {
+    agent any
+    tools {
+        go 'go-1.17'
+    }
+    environment {
+         GO117MODULE = 'on'
+    }
+    stages {
+        stage('build') {
+            steps {
+                sh 'go run '/src/main.go'
             }
         }
     }
