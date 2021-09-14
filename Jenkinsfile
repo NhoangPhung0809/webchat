@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Module') {
             steps {
-                sh 'sudo mkdir ./cache' 
+                sh 'mkdir ./cache' 
                 echo 'Module...!....!'
                 sh 'go get github.com/gorilla/websocket'
             }
