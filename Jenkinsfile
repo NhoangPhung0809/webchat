@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('buil') {
             steps {
-                sh 'go test ./src/main.go'
+                sh 'go run ./src/main.go runserver'
             }
         }
     }
