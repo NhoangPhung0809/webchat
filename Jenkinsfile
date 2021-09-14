@@ -1,15 +1,9 @@
 pipeline {
-    agent any
-    tools {
-        go 'go-1.17'
-    }
-    environment {
-         GO117MODULE = 'on'
-    }
+    agent any 
     stages {
         stage('build') {
             steps {
-                sh 'go build /src/main.go'
+                sh './gorun.sh'
             }
         }
     }
