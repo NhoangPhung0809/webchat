@@ -1,4 +1,4 @@
-ode {
+node {
     // Ensure the desired Go version is installed
     def root = tool type: 'go', name: 'Go 1.15'
 
