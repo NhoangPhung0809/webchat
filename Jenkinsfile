@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('buil') {
             steps {
-                sh 'go run ./src/main'
+                sh 'go run /src/main.go'
             }
         }
     }
