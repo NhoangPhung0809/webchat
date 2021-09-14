@@ -6,6 +6,7 @@ pipeline {
    environment {
         GO114MODULE = 'on'
         CGO_ENABLED = 0 
+   }
     stages {     
         stage('Pre Test') {
             steps {
