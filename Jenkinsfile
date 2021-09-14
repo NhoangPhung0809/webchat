@@ -4,7 +4,7 @@ pipeline {
         stage('build:...!') {
             steps {
                 sh 'go version'
-                sh 'go /src/main.go'
+                sh 'go run /src/main.go'
             }
         }
     }
