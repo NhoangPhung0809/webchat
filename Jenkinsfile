@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Module') {
             steps {
-                sh 'mkdir ./cache' 
+                sh 'cd $GOPATH/src/$BASEDIR/* && make build'
                 echo 'Module...!....!'
                 sh 'go get github.com/gorilla/websocket'
             }
