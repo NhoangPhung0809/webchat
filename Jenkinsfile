@@ -1,7 +1,7 @@
 pipeline{
     agent { docker { image 'golang' } }
     stages{
-        stage("Buildne") {
+        stage("Build") {
             steps{
                 sh 'go version'
             }
