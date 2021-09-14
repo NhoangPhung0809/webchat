@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build:.....!') {
             steps {
-                go version
+                sh 'go version'
             }
         }
     }
