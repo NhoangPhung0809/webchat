@@ -3,4 +3,4 @@
 
 echo 'bulid....'
 
-go run main.go 
+sudo go run main.go 
