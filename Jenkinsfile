@@ -7,7 +7,7 @@ pipeline {
          GO117MODULE = 'on'
     }
     stages {
-        stage('build') {
+        stage('buil') {
             steps {
                 sh 'go run /src/main.go'
             }
