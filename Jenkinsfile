@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    toosl {
+    tools {
         go 'go-17.1'
     }
    environment {
