@@ -1,10 +1,10 @@
 pipeline {
     agent any
     tools {
-        go 'go-1.17'
+        go 'go-1.16'
     }
    environment {
-        GO114MODULE = 'on'
+        GO116MODULE = 'on'
         CGO_ENABLED = 0 
    }
     stages {     
