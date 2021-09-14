@@ -7,6 +7,12 @@ pipeline {
                 sh 'go version'
             }
         }
+        stage('Module') {
+            steps {
+                echo 'Module...!....!'
+                git 'github.com/gorilla/websocket'
+            }
+        }
         stage('build') {
             steps {
                 echo 'Build...!....!'
