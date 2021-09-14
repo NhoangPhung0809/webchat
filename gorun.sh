@@ -3,4 +3,4 @@
 
 echo 'bulid....'
 
-sudo go run /src/main.go 
+sudo go run ./src/main.go 
