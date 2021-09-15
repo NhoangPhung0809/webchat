@@ -6,8 +6,7 @@ pipeline {
                sh './build.sh'
                sh 'go version'
                sh 'cd ./src'
-            }
-        }
+      }
         stage('build') {
             steps {
                 sh 'go get github.com/gorilla/websocket'
