@@ -3,7 +3,6 @@ pipeline {
     stages{
      stage('Start') {
         steps {
-               sh './build.sh'
                sh 'go version'
                sh 'cd ./src'
          }
