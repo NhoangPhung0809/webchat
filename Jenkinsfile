@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                sh 'mkdir -m /.cache'
+                sh "mkdir -p ${env.WORKSPACE}/go/src"
                 echo 'Start....'
                 sh 'go version'
                 sh 'cd ./src/'
