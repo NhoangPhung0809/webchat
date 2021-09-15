@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                sh "mkdir -p ${env.WORKSPACE}/go/src"
+                def root = tool name: '1.8.3', type: 'go'
                 echo 'Start....'
                 sh 'go version'
                 sh 'cd ./src/'
