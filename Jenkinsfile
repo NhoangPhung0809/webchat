@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Start....'
                 sh 'go version'
-                sh 'cd /src/'
+                sh 'cd ./src/'
             }
         }
         stage('build') {
