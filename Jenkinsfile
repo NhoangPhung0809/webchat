@@ -1,6 +1,11 @@
 pipeline {
     agent { docker { image 'golang' } }
     stages {
+        withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin", "GOBIN=${root}/bin", "GOPATH=${root}/go"]) {
+        sh 'go version'
+        sh './build.sh'
+        }
+    }
         stage('Start') {
             steps {
                 echo 'Start....'
