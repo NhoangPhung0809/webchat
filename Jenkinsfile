@@ -3,8 +3,6 @@ pipeline {
     stages {
         stage('Start') {
             steps {
-                
-                def root = tool name: 'go-1.17', type: 'go'
                 echo 'Start....'
                 sh 'go version'
                 sh 'cd ./src/'
