@@ -12,8 +12,7 @@ pipeline{
             steps{
                 dir('./src') {
                     sh 'go get github.com/gorilla/websocket'
-                    sh 'go run main.go'
-                    sh 'go stop main.go'
+                    sh 'go build main.go'
                 }
             }
         }
