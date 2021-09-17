@@ -1,17 +1,19 @@
-pipeline {
+pipeline{
     agent { docker { image 'golang' } }
     stages{
-     stage('Start') {
-        steps {
-               sh 'go version'
-               sh 'cd ./src'
-         }
-    }
-        stage('build') {
-            steps {
-                sh 'go get github.com/gorilla/websocket'
-                echo 'Build...!....!'
-                sh 'go run ./src/main.go'
+        stage("Go Build"){
+            steps{
+                dir('./src'){
+                    sh 'go get github.com/gorilla/websocket'
+                }
+            }
+        }  
+        stage("Go run"){
+            steps{
+                dir('./src'){
+                    sh 'go get github.com/gorilla/websocket'
+                    sh 'go run main.go'
+                }
             }
         }
     }
