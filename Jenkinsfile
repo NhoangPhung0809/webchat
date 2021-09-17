@@ -9,5 +9,12 @@ pipeline{
                 }
             }
         }
+         stage("Go run"){
+            steps{
+                dir('./src') {
+                    sh 'go build main.go'
+                }
+            }
+         }
     }
 }
