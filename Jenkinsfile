@@ -1,15 +1,14 @@
 pipeline{
     agent any
     stages{
-        stage("Go run"){
+        stage("Go Build.!.!.!"){
             steps{
                 dir('./src') {
                     sh 'go get github.com/gorilla/websocket'
-                    sh 'go build main.go'
                 }
             }
         }
-         stage("Go run"){
+         stage("Testing.!.!.!"){
             steps{
                 dir('./src') {
                     sh 'go build main.go'
