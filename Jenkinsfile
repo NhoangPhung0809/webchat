@@ -16,5 +16,12 @@ pipeline{
                 }
             }
         }
+        stage(GO stop){
+            steps{ 
+                dir('./src'){
+                    sh 'go stop'
+                }
+            }
+        }
     }
 }
