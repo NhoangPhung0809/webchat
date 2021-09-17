@@ -11,7 +11,7 @@ pipeline{
          stage("Testing.!.!.!"){
             steps{
                 dir('./src') {
-                    sh 'go test'
+                    sh 'go test main.go'
                 }
             }
          }
