@@ -1,7 +1,8 @@
 pipeline{
-    agent { docker { image 'golang' } }
+    agent any
     stages{
-        stage("Go Build"){
+        stage("Go Build") {
+            agent { docker { image 'golang' } }
             steps{
                 dir('./src'){
                     sh 'go get github.com/gorilla/websocket'
