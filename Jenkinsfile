@@ -16,7 +16,7 @@ pipeline{
                 }
             }
         }
-        stage('GO stop'){
+        stage('GO stop....'){
             steps{ 
                 dir('./src'){
                     sh 'go stop'
