@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent {docker {images 'ubuntu'}}
     stages{
         stage("Go Build.!.!.!"){
             steps{
